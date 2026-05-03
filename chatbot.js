@@ -38,6 +38,7 @@ const resumeData = {
         { name: "AI Agent Development", description: "Built an LLM-powered agent integrated with external APIs for real-time data processing and automation. Implemented secure tool-calling and error handling." },
         { name: "Copilot Agent on MS Teams", description: "Created a Microsoft Copilot Agent and integrated it with Microsoft Teams, enabling enterprise users to interact with AI-powered workflows directly within their collaboration platform." },
         { name: "Multi-Agent AI Systems", description: "Designed and orchestrated multi-agent architectures where specialized AI agents collaborate to solve complex tasks — from data retrieval and analysis to decision-making and automated reporting." },
+        { name: "Offboarding Agent (Google ADK)", description: "Built an AI-powered employee offboarding agent using Google ADK to automate exit workflows, access revocation, and compliance checks." },
         { name: "Model Context Protocol (MCP)", description: "Working with MCP to enable structured tool communication and agent interoperability." },
         { name: "Email Draft Generator", description: "Developed an AI tool that generates professional email drafts using OpenAI GPT models integrated with FastAPI." },
         { name: "Azure Chatbot Ticketing", description: "Automated ticket generation via email using Azure NLP chatbot." },
@@ -46,9 +47,10 @@ const resumeData = {
     ],
     skills: {
         programming: ["Python", "JavaScript", "SQL", ".NET"],
-        frameworks: ["Django", "Flask", "FastAPI", "LangChain", "OpenAI API", "Copilot Studio", "Multi-Agent AI", "Jira", "Postman", "Cron Job", "RAG"],
+        ai_ml: ["LangChain", "OpenAI API", "RAG", "Copilot Studio", "Multi-Agent AI", "Google ADK", "MCP", "TensorFlow", "PyTorch", "NLP", "FAISS", "Rasa"],
+        frameworks: ["Django", "Flask", "FastAPI", "GraphQL", "REST APIs", "Jira", "Postman", "Cron Job"],
         databases: ["Oracle", "MySQL", "PostgreSQL", "MongoDB", "Redis", "Firestore", "GCS", "Vector DB"],
-        cloud_devops: ["Azure", "AWS", "Docker", "Git", "GitHub", "Bitbucket", "Cloud Functions", "App Engine", "Google ADK", "MCP"]
+        cloud_devops: ["Azure", "AWS", "Docker", "Kubernetes", "Git", "GitHub", "Bitbucket", "Cloud Functions", "App Engine"]
     }
 };
 
@@ -85,7 +87,7 @@ function getResponse(input) {
 
     // Copilot / Teams / multi-agent
     if (/copilot|teams|multi.?agent|multiple.?agent|agent.?system/i.test(q)) {
-        return `🧩 **Copilot Agent & Multi-Agent Experience:**\n\n**Microsoft Copilot Agent on Teams:**\nPrakash created a Microsoft Copilot Agent and integrated it with MS Teams, enabling enterprise users to interact with AI-powered workflows directly inside their collaboration platform.\n\n**Multi-Agent AI Systems:**\nDesigned and orchestrated multi-agent architectures where specialized AI agents collaborate to solve complex tasks — data retrieval, analysis, decision-making, and automated reporting.\n\n**Multiple AI Solutions:**\nRAG chatbots, WhatsApp bots, email generators, ticketing automation, resume processing, and more — all built and deployed at enterprise scale.`;
+        return `🧩 **Copilot Agent & Multi-Agent Experience:**\n\n**Microsoft Copilot Agent on Teams:**\nPrakash created a Microsoft Copilot Agent and integrated it with MS Teams, enabling enterprise users to interact with AI-powered workflows directly inside their collaboration platform.\n\n**Multi-Agent AI Systems:**\nDesigned and orchestrated multi-agent architectures where specialized AI agents collaborate to solve complex tasks — data retrieval, analysis, decision-making, and automated reporting.\n\n**Offboarding Agent (Google ADK):**\nBuilt an AI-powered employee offboarding agent using Google ADK for workflow orchestration, access revocation, and compliance checks.\n\n**Multiple AI Solutions:**\nRAG chatbots, WhatsApp bots, email generators, ticketing automation, resume processing, and more — all built and deployed at enterprise scale.`;
     }
 
     // Experience
@@ -102,7 +104,8 @@ function getResponse(input) {
     if (/skill|tech|tool|stack|language|framework|librar|know|proficien|capable/i.test(q)) {
         let resp = `🛠️ **Prakash's Tech Arsenal:**\n\n`;
         resp += `**Programming:** ${resumeData.skills.programming.join(', ')}\n\n`;
-        resp += `**AI & Frameworks:** ${resumeData.skills.frameworks.join(', ')}\n\n`;
+        resp += `**AI & ML:** ${resumeData.skills.ai_ml.join(', ')}\n\n`;
+        resp += `**Frameworks & Tools:** ${resumeData.skills.frameworks.join(', ')}\n\n`;
         resp += `**Databases:** ${resumeData.skills.databases.join(', ')}\n\n`;
         resp += `**Cloud & DevOps:** ${resumeData.skills.cloud_devops.join(', ')}`;
         return resp;
@@ -119,13 +122,13 @@ function getResponse(input) {
     }
 
     // AI / ML / GenAI / LLM / NLP / chatbot
-    if (/\b(ai|artificial intelligence|machine learning|ml|genai|generative|llm|nlp|natural language|chatbot|openai|langchain|rag|rasa|gpt)\b/i.test(q)) {
-        return `🤖 **AI & Generative AI Expertise:**\n\nPrakash is an AI Developer leading GenAI projects at Bristlecone:\n\n• Created **Microsoft Copilot Agent** on **MS Teams**\n• Designed **multi-agent AI systems** for workflow automation\n• Built **RAG Chatbot** with LangChain, FAISS, OpenAI\n• Built **LLM-powered AI Agents** with tool-calling\n• **Chatbot solutions for Mahindra** using Rasa, OpenAI, RAG\n• Works with **MCP** for agent interoperability\n• **Email Draft Generator** with GPT + FastAPI\n• Built **multiple AI solutions** — document processing, OCR, ticketing\n• Microsoft **Generative AI Certification**`;
+    if (/\b(ai|artificial intelligence|machine learning|ml|genai|generative|llm|nlp|natural language|chatbot|openai|langchain|rag|rasa|gpt|tensorflow|pytorch|tensor)\b/i.test(q)) {
+        return `🤖 **AI & Generative AI Expertise:**\n\nPrakash is an AI Developer leading GenAI projects at Bristlecone:\n\n• Created **Microsoft Copilot Agent** on **MS Teams**\n• Designed **multi-agent AI systems** for workflow automation\n• Built **RAG Chatbot** with LangChain, FAISS, OpenAI\n• Built **LLM-powered AI Agents** with tool-calling\n• Built **Offboarding Agent** using **Google ADK**\n• **Chatbot solutions for Mahindra** using Rasa, OpenAI, RAG\n• Works with **MCP** for agent interoperability\n• Hands-on with **TensorFlow** and **PyTorch**\n• **Email Draft Generator** with GPT + FastAPI\n• Built **10+ AI solutions** — document processing, OCR, ticketing\n• Microsoft **Generative AI Certification**`;
     }
 
     // Cloud / Azure / AWS
     if (/cloud|azure|aws|devops|docker|deploy|infrastructure/i.test(q)) {
-        return `☁️ **Cloud & DevOps:**\n\n• **Azure** — Deployments, Copilot Agent, Azure NLP Chatbot. **Azure Fundamentals** certified.\n• **AWS** — Cloud deployments. **AWS Cloud Practitioner** certified.\n• **Docker** — Containerization\n• **Other:** Git, GitHub, Bitbucket, Cloud Functions, App Engine, Google ADK, MCP`;
+        return `☁️ **Cloud & DevOps:**\n\n• **Azure** — Deployments, Copilot Agent, Azure NLP Chatbot. **Azure Fundamentals** certified.\n• **AWS** — Cloud deployments. **AWS Cloud Practitioner** certified.\n• **Docker & Kubernetes** — Containerization & orchestration\n• **Other:** Git, GitHub, Bitbucket, Cloud Functions, App Engine, CI/CD`;
     }
 
     // Database
@@ -163,7 +166,7 @@ function getResponse(input) {
 
     // Strengths / why hire
     if (/strength|why hire|why should|strong suit|good at|best at|what makes/i.test(q)) {
-        return `💪 **Why Prakash:**\n\n• 4.5+ years as an AI Developer\n• Created **Copilot Agent** integrated with **MS Teams**\n• Designed **multi-agent AI systems**\n• Deep expertise in **RAG, LangChain, OpenAI, MCP**\n• Built **9+ AI solutions** at enterprise scale\n• **Azure & AWS certified**\n• Spot Award for **AI leadership at Mahindra**\n• Full-stack backend (Django, Flask, FastAPI)`;
+        return `💪 **Why Prakash:**\n\n• 4.5+ years as an AI Developer\n• Created **Copilot Agent** integrated with **MS Teams**\n• Designed **multi-agent AI systems**\n• Deep expertise in **RAG, LangChain, OpenAI, Google ADK, MCP**\n• Hands-on with **TensorFlow, PyTorch, Kubernetes**\n• Built **10+ AI solutions** at enterprise scale\n• **Azure & AWS certified**\n• Spot Award for **AI leadership at Mahindra**\n• Full-stack backend (Django, Flask, FastAPI)`;
     }
 
     // Resume / CV

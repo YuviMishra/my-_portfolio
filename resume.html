@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakash Mishra — AI Developer Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page { size: A4; margin: 0; }
+
+        body {
+            font-family: 'Inter', Arial, Helvetica, sans-serif;
+            color: #1a1a2e;
+            background: #fff;
+            font-size: 9.8px;
+            line-height: 1.45;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            padding: 20px 30px 16px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding-bottom: 8px;
+            border-bottom: 2.5px solid #1e40af;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1a1a2e;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .header-contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            font-size: 9.5px;
+            color: #475569;
+        }
+
+        .header-contact a { color: #1e40af; text-decoration: none; }
+        .header-contact .sep { color: #cbd5e1; }
+
+        .header-title {
+            margin-top: 4px;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #1e40af;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* Sections */
+        .section { margin-bottom: 9px; }
+
+        .section-title {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: #1e40af;
+            border-bottom: 1.2px solid #e2e8f0;
+            padding-bottom: 3px;
+            margin-bottom: 5px;
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 9.5px;
+            color: #334155;
+            line-height: 1.5;
+        }
+        .summary strong { color: #1a1a2e; }
+
+        /* Experience */
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1px;
+        }
+        .exp-role { font-size: 11px; font-weight: 700; color: #1a1a2e; }
+        .exp-date { font-size: 9.5px; color: #64748b; font-weight: 500; }
+        .exp-company { font-size: 9.8px; color: #475569; font-weight: 500; margin-bottom: 4px; }
+        .exp-company em { color: #94a3b8; font-style: normal; }
+
+        .exp-list { list-style: none; padding: 0; }
+        .exp-list li {
+            position: relative;
+            padding-left: 12px;
+            margin-bottom: 2.5px;
+            font-size: 9.5px;
+            color: #334155;
+            line-height: 1.45;
+        }
+        .exp-list li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 5px;
+            width: 4px; height: 4px;
+            background: #1e40af;
+            border-radius: 50%;
+        }
+        .exp-list li strong { color: #1a1a2e; }
+
+        /* Skills - compact inline */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .skills-table td {
+            font-size: 9.5px;
+            padding: 2px 0;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+        .skills-table .sl {
+            font-weight: 700;
+            color: #1a1a2e;
+            width: 110px;
+            white-space: nowrap;
+            padding-right: 8px;
+        }
+        .skills-table .sv { color: #334155; }
+
+        /* Projects - compact 2-col */
+        .proj-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 12px;
+        }
+        .proj {
+            padding: 4px 7px;
+            border-left: 2.5px solid #1e40af;
+            background: #f8fafc;
+        }
+        .proj h4 {
+            font-size: 9.5px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 1px;
+        }
+        .proj p {
+            font-size: 8.8px;
+            color: #475569;
+            line-height: 1.4;
+        }
+        .proj .tags {
+            margin-top: 2px;
+            font-size: 7.8px;
+            color: #1e40af;
+            font-weight: 500;
+        }
+
+        /* Certs */
+        .certs-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px 20px;
+        }
+        .cert {
+            font-size: 9.5px;
+            line-height: 1.6;
+            padding-left: 10px;
+            position: relative;
+        }
+        .cert::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 6px;
+            width: 4px; height: 4px;
+            background: #1e40af;
+            border-radius: 50%;
+        }
+        .cert strong { color: #1a1a2e; }
+        .cert span { color: #64748b; }
+        .cert.award::before { background: #f59e0b; }
+
+        /* Education */
+        .edu-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 9.5px;
+        }
+        .edu-row strong { color: #1a1a2e; }
+        .edu-row span { color: #64748b; }
+
+        @media print {
+            body { background: #fff; }
+            .page { width: 100%; height: auto; padding: 18px 28px 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <header class="header">
+            <h1>Prakash Mishra</h1>
+            <div class="header-contact">
+                <span>+91 9673441853</span><span class="sep">|</span>
+                <a href="mailto:mishraprakash453@gmail.com">mishraprakash453@gmail.com</a><span class="sep">|</span>
+                <span>Mumbai, India</span><span class="sep">|</span>
+                <a href="https://www.linkedin.com/in/prakash-mishra-428a86187/">linkedin.com/in/prakash-mishra</a><span class="sep">|</span>
+                <a href="https://yuvimishra.github.io/my-_portfolio/">Portfolio</a>
+            </div>
+            <div class="header-title">AI Developer | Python Backend Engineer | Generative AI</div>
+        </header>
+
+        <div class="section">
+            <div class="section-title">Professional Summary</div>
+            <p class="summary">
+                AI Developer with <strong>4.5+ years</strong> of experience building <strong>multi-agent AI systems</strong>,
+                <strong>RAG-based chatbots</strong>, and <strong>enterprise AI automation</strong> using LangChain, OpenAI, Google ADK, and Microsoft Copilot Studio.
+                Delivered AI solutions at scale for <strong>Mahindra (Fortune 500)</strong>. Hands-on with <strong>TensorFlow</strong>, <strong>PyTorch</strong>, and <strong>Kubernetes</strong>.
+                Strong backend expertise in Python (Django, FastAPI, Flask) with cloud deployments on <strong>Azure</strong> and <strong>AWS</strong>. Certified in <strong>Generative AI</strong>, Azure, and AWS Cloud.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Professional Experience</div>
+            <div class="exp-header">
+                <span class="exp-role">AI Developer</span>
+                <span class="exp-date">Sep 2022 — Present</span>
+            </div>
+            <div class="exp-company">Bristlecone (Mahindra Group) <em>|</em> Mumbai, India</div>
+            <ul class="exp-list">
+                <li>Built a <strong>Microsoft Copilot Agent</strong> on <strong>MS Teams</strong>, enabling enterprise-wide conversational AI serving Mahindra's workforce across multiple business units</li>
+                <li>Architected <strong>multi-agent AI systems</strong> using LangChain — specialized agents collaborating on data retrieval, analysis, decision-making, and automated reporting</li>
+                <li>Developed <strong>RAG-based chatbots</strong> using LangChain, FAISS, and OpenAI APIs, delivering context-aware responses from <strong>10,000+ internal documents</strong></li>
+                <li>Built an <strong>AI-powered Offboarding Agent</strong> using <strong>Google ADK</strong> to automate employee exit workflows, access revocation, and compliance checks</li>
+                <li>Created <strong>automated ticketing system</strong> using Azure NLP chatbot, streamlining email-to-ticket pipelines and reducing manual effort</li>
+                <li>Developed <strong>WhatsApp chatbot</strong> for Mahindra dealers using FastAPI & Infobip API — real-time account queries, receipts, and outstanding amounts</li>
+                <li>Led <strong>Generative AI initiatives</strong> — email draft generation (OpenAI GPT), resume processing automation, and intelligent OCR workflows</li>
+                <li>Designed scalable <strong>REST APIs & GraphQL endpoints</strong>; managed cloud deployments on <strong>Azure & AWS</strong> with Docker containerization</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Key Projects</div>
+            <div class="proj-grid">
+                <div class="proj">
+                    <h4>Copilot Agent on MS Teams</h4>
+                    <p>Enterprise Copilot Agent for AI-powered workflows using Copilot Studio, Azure, and MS Teams integration.</p>
+                    <div class="tags">Copilot Studio | MS Teams | Azure | Enterprise AI</div>
+                </div>
+                <div class="proj">
+                    <h4>Multi-Agent AI Systems</h4>
+                    <p>Orchestrated multi-agent architectures — specialized agents for data retrieval, analysis, and automated reporting.</p>
+                    <div class="tags">LangChain | Multi-Agent | AI Orchestration</div>
+                </div>
+                <div class="proj">
+                    <h4>RAG-based Chatbot</h4>
+                    <p>Context-aware chatbot using LangChain, FAISS, OpenAI for precise retrieval from internal knowledge bases.</p>
+                    <div class="tags">LangChain | FAISS | OpenAI | RAG</div>
+                </div>
+                <div class="proj">
+                    <h4>Offboarding Agent (Google ADK)</h4>
+                    <p>AI-powered employee offboarding automation — workflow orchestration, access revocation, compliance checks.</p>
+                    <div class="tags">Google ADK | AI Agent | Automation</div>
+                </div>
+                <div class="proj">
+                    <h4>AI Agent Development</h4>
+                    <p>LLM-powered agent with external API integration, real-time data processing, and secure tool-calling.</p>
+                    <div class="tags">LLM | Tool-calling | APIs | Automation</div>
+                </div>
+                <div class="proj">
+                    <h4>Model Context Protocol (MCP)</h4>
+                    <p>Structured tool communication and agent interoperability using MCP for cross-platform AI agents.</p>
+                    <div class="tags">MCP | AI Agents | Interoperability</div>
+                </div>
+                <div class="proj">
+                    <h4>WhatsApp Bot for Dealers</h4>
+                    <p>Real-time dealer chatbot for account queries, receipts, outstanding amounts via FastAPI & Infobip.</p>
+                    <div class="tags">FastAPI | Infobip | WhatsApp API</div>
+                </div>
+                <div class="proj">
+                    <h4>Email Generator & OCR Automation</h4>
+                    <p>AI-powered email drafting with OpenAI GPT and automated document processing pipelines.</p>
+                    <div class="tags">OpenAI GPT | FastAPI | NLP | OCR</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <table class="skills-table">
+                <tr>
+                    <td class="sl">AI & Generative AI</td>
+                    <td class="sv">LangChain, OpenAI API, RAG, Multi-Agent AI, Google ADK, MCP, Copilot Studio, TensorFlow, PyTorch, FAISS, Rasa, NLP</td>
+                </tr>
+                <tr>
+                    <td class="sl">Languages</td>
+                    <td class="sv">Python, JavaScript, SQL, .NET</td>
+                </tr>
+                <tr>
+                    <td class="sl">Frameworks</td>
+                    <td class="sv">Django, Flask, FastAPI, GraphQL, REST APIs</td>
+                </tr>
+                <tr>
+                    <td class="sl">Databases</td>
+                    <td class="sv">PostgreSQL, MySQL, Oracle, MongoDB, Redis, Firestore, Google Cloud Storage, Vector DB</td>
+                </tr>
+                <tr>
+                    <td class="sl">Cloud & DevOps</td>
+                    <td class="sv">Azure, AWS, Docker, Kubernetes, Git, GitHub, Bitbucket, Cloud Functions, App Engine, CI/CD</td>
+                </tr>
+                <tr>
+                    <td class="sl">Tools</td>
+                    <td class="sv">Jira, Postman, Cron Jobs, VS Code, Jupyter Notebook</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Certifications & Awards</div>
+            <div class="certs-row">
+                <div class="cert"><strong>Generative AI Certification</strong> <span>— Microsoft</span></div>
+                <div class="cert"><strong>Azure Fundamentals (AZ-900)</strong> <span>— Microsoft</span></div>
+                <div class="cert"><strong>AWS Certified Cloud Practitioner</strong> <span>— AWS</span></div>
+                <div class="cert award"><strong>Spot Award</strong> <span>— Bristlecone, Jul 2025 | AI initiatives at Mahindra</span></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="edu-row">
+                <strong>Mumbai University</strong>
+                <span>2021</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
